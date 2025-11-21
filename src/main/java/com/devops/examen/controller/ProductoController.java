@@ -3,11 +3,13 @@ package com.devops.examen.controller;
 import com.devops.examen.entity.Producto;
 import com.devops.examen.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Controller
 public class ProductoController {
 
     @Autowired
