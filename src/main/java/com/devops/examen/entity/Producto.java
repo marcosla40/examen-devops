@@ -1,3 +1,12 @@
+package com.devops.examen.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
+import lombok.*;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
