@@ -11,6 +11,7 @@ public interface ProductoService {
     Optional<Producto> findProducto(Long id);
     List<Producto> findByCategoria(String categoria);
     List<Producto> findByPrecio(float precio);
+    List<Producto> findByPrecioAndCategoria(float precio, String categoria);
 
     Producto addProducto(Producto producto);
     void eliminarProductoById(Long productoId);
