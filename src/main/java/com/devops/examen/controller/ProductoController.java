@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RestController
 public class ProductoController {
 
     @Autowired
@@ -36,9 +37,9 @@ public class ProductoController {
             - Si se indica el precio -> obtener los productos con ese precio.
             - Si se indica la categoria -> obtener los productos con esa categoria.
          */
-        if(precio == 0.0 && categoria == "") {
+        if(precio == 0.0 && categoria.isEmpty()) {
             return productoService.findAllProductos();
-        } else if (precio == 0) {
+        } else if (precio != 0.0) {
             return productoService.findByPrecio(precio);
         }
         return productoService.findByCategoria(categoria);
