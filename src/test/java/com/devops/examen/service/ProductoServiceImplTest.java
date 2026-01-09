@@ -41,12 +41,12 @@ class ProductoServiceImplTest {
     void testFindProducto() {
         Producto producto = new Producto();
         producto.setId(2L);
-        Mockito.when(productoRepository.findById(1L)).thenReturn(Optional.of(producto));
+        Mockito.when(productoRepository.findById(2L)).thenReturn(Optional.of(producto));
 
-        Optional<Producto> resultado = productoService.findProducto(1L);
+        Optional<Producto> resultado = productoService.findProducto(2L);
 
-        assertEquals(1L, resultado.get().getId());
-        Mockito.verify(productoRepository).findById(1L);
+        assertEquals(2L, resultado.get().getId());
+        Mockito.verify(productoRepository).findById(2L);
     }
 
     @Test

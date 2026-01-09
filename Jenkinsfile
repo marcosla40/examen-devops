@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        VERSION = '1.3.0-SNAPSHOT'
+        VERSION = '1.3.0'
         JAR_NAME = 'examenMocMLA'
     }
 
