@@ -39,5 +39,8 @@ public class Producto {
 
     @Column
     private Integer cantidad;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     
 }

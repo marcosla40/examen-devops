@@ -46,7 +46,7 @@ class ProductoServiceImplTest {
         Optional<Producto> resultado = productoService.findProducto(2L);
 
         assertEquals(2L, resultado.get().getId());
-        Mockito.verify(productoRepository).findById(2L);
+        Mockito.verify(productoRepository, Mockito.times(1)).findById(1L);
     }
 
     @Test
