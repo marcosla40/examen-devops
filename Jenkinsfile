@@ -1,14 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven3.9.11'
-        // jdk 'jdk-21'
-    }
-
     environment {
-        VERSION = '1.3.0'
-        JAR_NAME = 'examenMocMLA'
+        VERSION = '1.3.0-SNAPSHOT'
     }
 
     stages {
@@ -20,19 +14,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package -DskipTests'
+                bat 'mvn package -DskipTests'
             }
         }
 
@@ -41,15 +35,15 @@ pipeline {
                 echo "Eliminando directorio versiones...."
                 script {
                     if (fileExists('versiones')) {
-                        sh 'rm -rf versiones'
+                        bat 'rd /s /q versiones'
                     }
                 }
             }
             post {
                 success {
                     echo "Se crea el directorio versiones con la última versión de la api"
-                    sh 'mkdir versiones'
-                    sh "cp target/examen-${VERSION}.jar versiones/"
+                    bat 'mkdir versiones'
+                    bat "copy target\\examen-${VERSION}.jar versiones\\"
                 }
             }
         }
